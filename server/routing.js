@@ -10,29 +10,29 @@ function testfunc(req, res, next) {
 	res.send(oResTestResponse)
 }
 
-function test_json(req, res, next) {
-	res.send({
-		test: 'aye!'
-	})
+function sendfunc(req, res, next) {
+	console.log('[routing]: test send')
+	console.log(req.body)
+	res.send({message: '_(:з」∠)_'})
 }
 
 function setup(app) {
 	app.get('/test_api', testfunc)
+	app.post('/test_send', sendfunc)
 
-	// app.get('/', testfunc)
 	app.get('/main', testfunc)
 
-	app.get('/profile', test_json)
-	app.get('/profile/products', testfunc)
+	// app.get('/profile', testfunc)
+	// app.get('/profile/products', testfunc)
 
-	app.get('/product', testfunc)
-	app.get('/product/histree', testfunc)
-	app.get('/product/ancestors', testfunc)
-	app.get('/product/siblings', testfunc)
-	app.get('/product/descendants', testfunc)
+	// app.get('/product', testfunc)
+	// app.get('/product/histree', testfunc)
+	// app.get('/product/ancestors', testfunc)
+	// app.get('/product/siblings', testfunc)
+	// app.get('/product/descendants', testfunc)
 
-	/* 'histree' denotes history + tree */
-	app.get('/histree', testfunc)
+	// /* 'histree' denotes history + tree */
+	// app.get('/histree', testfunc)
 
 }
 
