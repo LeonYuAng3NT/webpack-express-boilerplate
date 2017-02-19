@@ -17,6 +17,8 @@ function test_json(req, res, next) {
 }
 
 function setup(app) {
+	app.get('/test_api', testfunc)
+
 	// app.get('/', testfunc)
 	app.get('/main', testfunc)
 

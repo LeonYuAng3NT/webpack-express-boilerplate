@@ -8,7 +8,7 @@ export default class TogglingMessage extends React.Component {
 		this.state = {
 			toggle_flag: false
 		}
-		this.toggle = this.toggle.bind(this);
+		this.toggle = this.toggle.bind(this)
 	}
 
 	toggle() {
