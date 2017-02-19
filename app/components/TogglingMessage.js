@@ -6,21 +6,23 @@ export default class TogglingMessage extends React.Component {
 		console.log("[TogglingMessage]: in constructor")
 		super(props)
 		this.state = {
-			test_msg: 'foo'
+			toggle_flag: false
 		}
 		this.toggle = this.toggle.bind(this);
 	}
 
 	toggle() {
-		console.log("[TogglingMessage]: foo" + this.state.test_msg)
+		console.log("[TogglingMessage]: toggling")
+		this.setState({ toggle_flag: !this.state.toggle_flag })
 	}
 	
 	render() {
-		console.log("[TogglingMessage]: rendering")
+		let msg = this.state.toggle_flag ? 'foo' : 'bar'
+		console.log("[TogglingMessage]: rendering with " + msg)
 		return (
 			<div>
 				<button onClick={this.toggle}>Click here !</button>
-				YAYA KAWAII YO
+				{msg}
 			</div>
 		)
 	}

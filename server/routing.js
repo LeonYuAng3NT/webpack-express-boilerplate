@@ -3,7 +3,11 @@ var num_invokes = 1
 function testfunc(req, res, next) {
 	console.log('[routing]: test function! (invoked %d times)', num_invokes)
 	num_invokes++
-	res.send('_(:з」∠)_')
+	let oResTestResponse = {
+		number: num_invokes,
+		message: '_(:з」∠)_'
+	}
+	res.send(oResTestResponse)
 }
 
 function test_json(req, res, next) {
