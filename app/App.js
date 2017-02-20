@@ -3,6 +3,7 @@ import styles from './App.css'
 import TogglingMessage from './components/TogglingMessage'
 import ExampleAPICall from './components/ExampleAPICall'
 import ExampleSendRequest from './components/ExampleSendRequest'
+import ExampleSendMessage from './components/ExampleSendMessage'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
         <TogglingMessage />
         <ExampleAPICall />
         <ExampleSendRequest />
+        <ExampleSendMessage />
       </div>
     )
   }
