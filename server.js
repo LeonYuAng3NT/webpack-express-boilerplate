@@ -2,6 +2,7 @@
 
 const path = require('path');
 const express = require('express');
+const session = require('express-session')
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -10,12 +11,17 @@ const config = require('./webpack.config.js');
 const backendRouting = require('./server/routing');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = isDeveloping ? 8888 : process.env.PORT;
+
 const app = express();
 
 // Back-end setup.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(session({ cookie: { maxAge: 60000 },
+  secret: 'Demo',
+  resave: false,
+  saveUninitialized: false}));
 backendRouting.setup(app);
 
 // Front-end setup.
