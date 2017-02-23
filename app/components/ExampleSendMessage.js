@@ -1,6 +1,5 @@
 import React from 'react'
 
-var count = 0
 
 export default class ExampleSendMessage extends React.Component {
 
@@ -8,9 +7,12 @@ export default class ExampleSendMessage extends React.Component {
 		super(props)
 		this.testSend = this.testSend.bind(this)
 	}
+	componentWillMount() {
+		this.testSend;
+	}
 
 	sendJson(json) {
-		console.log("[ExampleSendMessage]: sending message")
+
 		fetch('/test_send', {
 			method: 'POST',
 			headers: {
@@ -22,12 +24,15 @@ export default class ExampleSendMessage extends React.Component {
 	}
 
 	testSend() {
-		console.log("[ExampleSendMessage]: message %s", this.refs.myTextBox.value)
+		console.log("[ExampleSendMessage]: username: %s", this.refs.username.value)
+		console.log("[ExampleSendMessage]: password %s", this.refs.password.value)
 		var oJsonSend = {
-			key: count,
-			value: this.refs.myTextBox.value
-		}
-		count++
+			id: this.refs.id.value,
+			username: this.refs.username.value,
+			password: this.refs.password.value,
+			status: this.refs.status.value
+		};
+
 		this.sendJson(oJsonSend)
 	}
 
@@ -36,7 +41,11 @@ export default class ExampleSendMessage extends React.Component {
 
 		return (
 			<div>
-				TestMessage: <input type="text" ref="myTextBox"/>
+				id: <input type="text" ref="id"/>
+				status: <input type="text" ref="status"/>
+				username: <input type="text" ref="username"/>
+				password: <input type="password" ref="password"/>
+
 				<button onClick = {this.testSend}>Send It!</button>
 			</div>
 		)
