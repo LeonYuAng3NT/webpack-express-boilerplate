@@ -37,12 +37,12 @@ export default class ExampleAPICall extends React.Component {
 				curr_number: data.number,
 				curr_message: data.message
 			})
-		}
+		};
 
 		var getData = () => this.fetchJSON(putData)
 
-		let num = this.state.curr_number
-		let msg = this.state.curr_message
+		let num = this.state.curr_number;
+		let msg = this.state.curr_message;
 
 		return (
 			<div>

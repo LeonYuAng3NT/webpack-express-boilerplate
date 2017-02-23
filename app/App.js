@@ -5,7 +5,6 @@ import ExampleAPICall from './components/ExampleAPICall'
 import ExampleSendRequest from './components/ExampleSendRequest'
 import SignUp from './components/Login/login'
 
-
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +19,8 @@ export default class App extends React.Component {
         <TogglingMessage />
         <ExampleAPICall />
         <ExampleSendRequest />
-          <SignUp/>
+        <SignUp/>
+
       </div>
     )
   }
